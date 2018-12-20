@@ -11,13 +11,13 @@ def db_connect():
                            user='root',
                            password='root',
                            db='example',
-                           cursorclass=pymysql.cursors.DictCursor)
+                           cursorclass=pymysql.cursors.DictCursor)    #This is a Cursor class that returns rows as dictionaries and stores the result set in the client.
 
 
 def insert_query(sql,param):
     db = db_connect()
     try:
-        cursor = db.cursor()
+        cursor = db.cursor()                  # This is the object you use to interact with the database.
         cursor.execute(sql, param)
         db.commit()
         cursor.close()
